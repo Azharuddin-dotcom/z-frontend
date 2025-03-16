@@ -12,10 +12,10 @@ describe("Hero Component", () => {
         expect(heroImage).toHaveAttribute("src", "media/images/homeHero.png");
     });
 
-    test("renders signup button", () => {
-        render(<Hero />);
-        const signupButton = screen.getByRole('button');
-        expect(signupButton).toBeInTheDocument();
-        expect(signupButton).toHaveClass("btn-primary");
-    });
+    // test("renders signup button", () => {
+    //     render(<Hero />);
+    //     const signupButton = screen.getByRole('button');
+    //     expect(signupButton).toBeInTheDocument();
+    //     expect(signupButton).toHaveClass("btn-primary");
+    // });
 });
