@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function Signup() {
-  const [username, setUsername] = useState("");
+function Login({ setToken, setErrorMessage }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -10,29 +9,24 @@ function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3002/api/signup", {
-        username,
+      const response = await axios.post("http://localhost:3002/api/login", {
         email,
         password,
       });
-      alert("User created successfully");
+
+      // Store the JWT token in localStorage
+      localStorage.setItem("token", response.data.token);
+      setToken(response.data.token);
       window.location.href = "https://67d7f5330e7e04d05624407a--zdbrd.netlify.app/";
     } catch (error) {
-      console.error("Signup failed:", error.response.data.message);
+      setErrorMessage("Invalid credentials, please try again.");
+      console.error("Login failed:", error.response.data.message);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="text-center">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <br />
         <input
           type="email"
           placeholder="Email"
@@ -48,11 +42,10 @@ function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <br />
-        <button type="submit">Signup</button>
+        <button type="submit">Login</button>
       </div>
     </form>
   );
 }
 
-export default Signup;
+export default Login;
