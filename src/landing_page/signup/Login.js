@@ -9,7 +9,7 @@ function Login({ setToken, setErrorMessage }) {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3002/api/login", {
+      const response = await axios.post("https://z-backend-8m5o.onrender.com/api/login", {
         email,
         password,
       });

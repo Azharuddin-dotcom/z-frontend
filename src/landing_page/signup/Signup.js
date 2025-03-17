@@ -10,7 +10,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3002/api/signup", {
+      await axios.post('https://z-backend-8m5o.onrender.com/api/signup', {
         username,
         email,
         password,
