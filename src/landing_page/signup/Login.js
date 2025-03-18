@@ -9,7 +9,7 @@ function Login({ setToken, setErrorMessage }) {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://z-backend-8m5o.onrender.com/api/login", {
+      const response = await axios.post("https://z-backend-d97a.onrender.com/api/login", {
         email,
         password,
       });
@@ -17,7 +17,7 @@ function Login({ setToken, setErrorMessage }) {
       // Store the JWT token in localStorage
       localStorage.setItem("token", response.data.token);
       setToken(response.data.token);
-      window.location.href = "https://67d7f5330e7e04d05624407a--zdbrd.netlify.app/";
+      window.location.href = "https://zdbrd.netlify.app/";
     } catch (error) {
       setErrorMessage("Invalid credentials, please try again.");
       console.error("Login failed:", error.response.data.message);

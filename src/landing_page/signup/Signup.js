@@ -10,13 +10,13 @@ function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post('https://z-backend-8m5o.onrender.com/api/signup', {
+      await axios.post('https://z-backend-d97a.onrender.com/api/signup', {
         username,
         email,
         password,
       });
       alert("User created successfully");
-      window.location.href = "https://67d7f5330e7e04d05624407a--zdbrd.netlify.app/";
+      window.location.href = "https://zdbrd.netlify.app/";
     } catch (error) {
       console.error("Signup failed:", error.response.data.message);
     }

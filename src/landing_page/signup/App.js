@@ -12,7 +12,7 @@ function App() {
     if (token) {
       // Fetch user data from the protected route
       axios
-        .get('https://z-backend-8m5o.onrender.com/api/protected', {
+        .get('https://z-backend-d97a.onrender.com/api/protected', {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
