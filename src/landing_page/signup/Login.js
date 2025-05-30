@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./style.css";
 
 function Login({ setToken, setErrorMessage }) {
   const [email, setEmail] = useState("");
@@ -25,27 +26,32 @@ function Login({ setToken, setErrorMessage }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="text-center">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </div>
-    </form>
-  );
+  <div className="auth-container">
+    <div className="auth-form">
+      <h2 className="auth-title">Login</h2>
+      {/* Add error message display if needed */}
+      <form onSubmit={handleSubmit}>
+        <div className="text-center">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+);
 }
 
 export default Login;

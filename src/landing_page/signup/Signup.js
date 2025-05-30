@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./style.css";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -23,36 +24,38 @@ function Signup() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="text-center">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <br />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
-        <button type="submit">Signup</button>
-      </div>
-    </form>
-  );
+  <div className="auth-container">
+    <div className="auth-form">
+      <h2 className="auth-title">Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="text-center">
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+);
 }
 
 export default Signup;
